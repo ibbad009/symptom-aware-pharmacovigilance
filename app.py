@@ -11,7 +11,7 @@ st.set_page_config(page_title="Symptom-Aware Pharmacovigilance", layout="wide")
 # -------------------------
 # Load Model
 # -------------------------
-model_path = "/content/saved_model"
+model_path = "saved_model"
 tokenizer = AutoTokenizer.from_pretrained(model_path)
 model = AutoModelForSequenceClassification.from_pretrained(model_path)
 model.eval()
@@ -19,10 +19,10 @@ model.eval()
 # -------------------------
 # Load SIDER
 # -------------------------
-drug_names = pd.read_csv("/content/drug_names.tsv", sep="\t", header=None)
+drug_names = pd.read_csv("drug_names.tsv", sep="\t", header=None)
 drug_names.columns = ["stitch_id", "drug_name"]
 
-side_effects = pd.read_csv("/content/meddra_all_se.tsv", sep="\t", header=None)
+side_effects = pd.read_csv("meddra_all_se.tsv", sep="\t", header=None)
 side_effects.columns = [
     "stitch_id_flat",
     "stitch_id_stereo",
